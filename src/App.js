@@ -3,6 +3,7 @@ import
     BrowserRouter as Router, Route, Switch
   } from "react-router-dom";
 import './App.css';
+import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import Home from './Pages/Home/Home/Home';
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
@@ -11,7 +12,8 @@ import Register from "./Pages/Login/Register/Register";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <AuthProvider>
+         <Router>
         
          <Switch>
           <Route path="/about">
@@ -31,6 +33,7 @@ function App() {
           </Route>
         </Switch>
      </Router>
+     </AuthProvider>
     </div>
   );
 }
