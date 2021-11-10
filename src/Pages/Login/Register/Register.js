@@ -1,4 +1,4 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
@@ -80,8 +80,8 @@ const Register = () => {
               </NavLink>
                       </form>}
                       {isLoading && <CircularProgress />}
-                       {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>}
+                       {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                    {authError && <Alert severity="error">{authError}</Alert>} */}
           </Grid>
           <Grid item xs={4} md={6}>
             <img style={{ width: '100%' }} src={login} alt="" />

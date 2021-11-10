@@ -1,32 +1,59 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import React from 'react';
-const Navigation = () => {
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { ImHome } from 'react-icons/im';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+import './Navigation.css';
+
+const Navigation = () =>
+{
+  const { user, logOut } = useAuth();
     return (
-        <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Biker's Den
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+     <div className="header">
+			<Navbar sticky="top" collapseOnSelect expand="sm">
+				<Container>
+					<Link to="/home">
+						{/* <img to="/home" className="logo" src={logo} alt="" /> */}
+					</Link>
+					<Navbar.Toggle />
+					<Navbar.Collapse className="justify-content-end">
+						<Nav.Link className="ms-3 home" as={Link} to="/home">
+							<ImHome className="w-8 h-8" />
+						</Nav.Link>
+						<Nav.Link className="ms-3 " as={Link} to="/offers">
+							Offers
+						</Nav.Link>
+						<Nav.Link className="ms-3 " as={Link} to="/addoffers">
+							Add Offer
+						</Nav.Link>
+						<Nav.Link className="ms-3 " as={Link} to="/manageoffer">
+							Manage Offer
+						</Nav.Link>
+						<Nav.Link className="ms-3 " as={Link} to="/restaurants">
+							All Restaurants
+						</Nav.Link>
+
+						<Nav.Link className="ms-3 " as={Link} to="/aboutus">
+							About Us
+						</Nav.Link>
+
+						{user?.email ? (
+							<Button onClick={logOut} variant="light">
+								Logout
+							</Button>
+						) : (
+							<Nav.Link as={Link} to="/login">
+								Login
+							</Nav.Link>
+						)}
+						<br />
+						<Navbar.Text>
+							<Link to="/">{user?.displayName}</Link>
+						</Navbar.Text>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
+		</div>
     );
 };
 
