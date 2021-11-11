@@ -5,7 +5,7 @@ import "./Testimonial.css";
 const Testimonial = () => {
  
   const [ClientReview, setClientReview] = useState([]);
-  console.log(ClientReview);
+  // console.log(ClientReview);
 
   useEffect(() => {
     fetch("review.json")

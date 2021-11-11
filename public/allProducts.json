@@ -40,5 +40,47 @@
     "price": "699",
     "description": "Street KIng is really the king of bike. It fulfill all need of  an biker in all condition.",
     "img": "https://i.ibb.co/Qmg1twj/pd6.png"
+  },
+  {
+    "id": 7,
+    "name": "Bugatti KIng",
+    "price": "799",
+    "description": "Duronto is the choice for all . This the lineup with combine of all functionality.",
+    "img": "https://i.ibb.co/7JsCsRh/pd7.png"
+  },
+  {
+    "id": 8,
+    "name": "Maruti",
+    "price": "699",
+    "description": "This is the Bicycle for the miliniam people . You have to admire it's quality and comfort.",
+    "img": "https://i.ibb.co/4mQxYzv/pd9.png"
+  },
+  {
+    "id": 9,
+    "name": "Suzuki",
+    "price": "699",
+    "description": "This is the Bicycle for the miliniam people . You have to admire it's quality and comfort.",
+    "img": "https://i.ibb.co/xqfq5kR/pd11.png"
+  },
+  {
+    "id": 10,
+    "name": "Marcides",
+    "price": "699",
+    "description": "This is the Bicycle for the miliniam people . You have to admire it's quality and comfort.",
+    "img": "https://i.ibb.co/fvJGCyZ/pd13.png"
+  },
+  {
+    "id": 11,
+    "name": "Aston Martin",
+    "price": "699",
+    "description": "Monstar Race is one of the colest of it's kind. It scream the eligent and style.",
+    "img": "https://i.ibb.co/T0fN9r6/pd16.png"
+  },
+  {
+    "id": 12,
+    "name": "Blade Runner",
+    "price": "699",
+    "description": "Meet the King. It's the best combination of where style meet the comfortable",
+    "img": "https://i.ibb.co/Lh2jgqY/pd17.png"
   }
 ]
