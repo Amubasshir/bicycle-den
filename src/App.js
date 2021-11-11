@@ -4,6 +4,7 @@ import
   } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
+import Contact from "./Pages/Contact/Contact";
 import Home from './Pages/Home/Home/Home';
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           <Route exact path="/">
             <Home />

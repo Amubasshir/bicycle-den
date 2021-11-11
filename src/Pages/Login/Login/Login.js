@@ -35,7 +35,7 @@ const Login = () => {
               label="Your Email"
               name="email"
               type="email"
-              onChange={handleOnChange}
+              onBlur={handleOnChange}
               variant="standard"
             />
             <TextField
@@ -44,7 +44,7 @@ const Login = () => {
               label="Your Password"
               type="password"
               name="password"
-              onChange={handleOnChange}
+              onBlur={handleOnChange}
               variant="standard"
             />
             <Button

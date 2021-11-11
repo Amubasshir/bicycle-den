@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { ImHome } from 'react-icons/im';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../Hooks/useAuth';
 import './Navigation.css';
 
@@ -10,7 +11,9 @@ const Navigation = () =>
   const { user, logOut } = useAuth();
     return (
      <div className="header">
-			<Navbar sticky="top" collapseOnSelect expand="sm">
+			<Navbar
+				sticky="top"
+				collapseOnSelect expand="sm">
 				<Container>
 					<Link to="/home">
 						{/* <img to="/home" className="logo" src={logo} alt="" /> */}
@@ -20,22 +23,22 @@ const Navigation = () =>
 						<Nav.Link className="ms-3 home" as={Link} to="/home">
 							<ImHome className="w-8 h-8" />
 						</Nav.Link>
-						<Nav.Link className="ms-3 " as={Link} to="/offers">
+						{/* <Nav.Link className="ms-3 " as={Link} to="/offers">
 							Offers
-						</Nav.Link>
-						<Nav.Link className="ms-3 " as={Link} to="/addoffers">
+						</Nav.Link> */}
+						{/* <Nav.Link className="ms-3 " as={Link} to="/addoffers">
 							Add Offer
-						</Nav.Link>
-						<Nav.Link className="ms-3 " as={Link} to="/manageoffer">
+						</Nav.Link> */}
+						{/* <Nav.Link className="ms-3 " as={Link} to="/manageoffer">
 							Manage Offer
-						</Nav.Link>
-						<Nav.Link className="ms-3 " as={Link} to="/restaurants">
-							All Restaurants
+						</Nav.Link> */}
+						<Nav.Link className="ms-3 " as={Link} to="/explore">
+							Explore
 						</Nav.Link>
 
-						<Nav.Link className="ms-3 " as={Link} to="/aboutus">
-							About Us
-						</Nav.Link>
+					<Nav.Link as={HashLink} to="/home#contact">
+              Contact
+            </Nav.Link>
 
 						{user?.email ? (
 							<Button onClick={logOut} variant="light">

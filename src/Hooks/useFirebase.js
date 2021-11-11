@@ -1,8 +1,8 @@
 import
-    {
-        createUserWithEmailAndPassword,
-        getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
-    } from 'firebase/auth';
+  {
+    createUserWithEmailAndPassword,
+    getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile
+  } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initializeFirebase from '../Pages/Login/Login/Firebase/Firebase.init';
 
@@ -13,21 +13,29 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
      const [authError, setAuthError] = useState('');
   const auth = getAuth();
+  
 
-    const registerUser = (email, password) =>
-    {
-      setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-          setAuthError(' ');
-      })
-      .catch((error) => {
-        
-        setAuthError(error.message);
-        
-      })
-        .finally(() => setIsLoading(false));
-  };
+    const registerUser = (email, password, name, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
+                history.replace('/');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
+    }
 
     const loginUser = (email, password, location, history) => {
         setIsLoading(true);
