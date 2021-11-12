@@ -7,6 +7,7 @@ import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import AddProducts from "./Pages/AddProducts/AddProducts";
 import Contact from "./Pages/Contact/Contact";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import MyOrder from "./Pages/Dashboard/MyOrder/MyOrder";
 import Review from "./Pages/Dashboard/User/Review/Review";
 import Explore from "./Pages/Explore/Explore";
 import Home from './Pages/Home/Home/Home';
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/addProducts">
             <AddProducts />
+          </Route>
+           <Route exact path="/dashboard/:productId">
+            <MyOrder/>
           </Route>
           <Route path="/review">
             <Review />
