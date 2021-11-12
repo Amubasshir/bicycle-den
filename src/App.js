@@ -4,7 +4,9 @@ import
   } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
+import AddProducts from "./Pages/AddProducts/AddProducts";
 import Contact from "./Pages/Contact/Contact";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import Review from "./Pages/Dashboard/User/Review/Review";
 import Explore from "./Pages/Explore/Explore";
 import Home from './Pages/Home/Home/Home';
@@ -33,6 +35,12 @@ function App() {
           </Route>
           <Route path="/explore">
             <Explore />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/addProducts">
+            <AddProducts />
           </Route>
           <Route path="/review">
             <Review />

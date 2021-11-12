@@ -1,7 +1,8 @@
+import { Box } from '@mui/system';
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { ImHome } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../Hooks/useAuth';
 import './Navigation.css';
@@ -40,15 +41,22 @@ const Navigation = () =>
               Contact
             </Nav.Link>
 
-						{user?.email ? (
-							<Button onClick={logOut} variant="light">
-								Logout
-							</Button>
-						) : (
-							<Nav.Link as={Link} to="/login">
-								Login
-							</Nav.Link>
-						)}
+						{
+
+						  user?.email ?
+                            <Box>
+                                <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                                    <Button color="secondary">Dashboard</Button>
+                                </NavLink>
+                                <Button onClick={logOut} color="secondary">Logout</Button>
+                            </Box>
+                            :
+                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                <Button color="inherit">Login</Button>
+                            </NavLink>
+
+
+						}
 						<br />
 						<Navbar.Text>
 							<Link to="/">{user?.displayName}</Link>
