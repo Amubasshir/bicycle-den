@@ -5,6 +5,7 @@ import
 import './App.css';
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import Contact from "./Pages/Contact/Contact";
+import Review from "./Pages/Dashboard/User/Review/Review";
 import Explore from "./Pages/Explore/Explore";
 import Home from './Pages/Home/Home/Home';
 import Login from "./Pages/Login/Login/Login";
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/explore">
             <Explore />
+          </Route>
+          <Route path="/review">
+            <Review />
           </Route>
           <Route path="/contact">
             <Contact />

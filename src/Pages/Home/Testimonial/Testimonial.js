@@ -4,11 +4,12 @@ import "./Testimonial.css";
 
 const Testimonial = () => {
  
+
   const [ClientReview, setClientReview] = useState([]);
-  // console.log(ClientReview);
+  console.log(ClientReview);
 
   useEffect(() => {
-    fetch("review.json")
+    fetch("http://localhost:5000/ClientReview")
       .then((res) => res.json())
       .then((data) => setClientReview(data));
   }, []);
