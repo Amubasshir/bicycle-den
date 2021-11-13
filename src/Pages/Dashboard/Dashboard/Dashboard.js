@@ -43,7 +43,7 @@ function Dashboard(props) {
       <Divider />
       <List>
         <Link to={`${url}`}>
-          <button className="btn sidebar__btn w-100">DashBoard</button>
+          <button className="btn sidebar__btn w-100">My Orders</button>
         </Link>
 
         <Link to={`${url}/addReview`}>
@@ -155,7 +155,7 @@ function Dashboard(props) {
 
         <Switch>
           <Route exact path={path}>
-            <h1>Welcome to Dashboard</h1>
+            <h1>My Orders</h1>
             <MyOrders></MyOrders>
           </Route>
           <Route path={`${path}/addReview`}>

@@ -11,9 +11,10 @@ const SingleProduct = ({ product }) =>
       <h3>{name}</h3>
       <h5>Price:{price}</h5>
       <p className="px-5">{description}</p>
-      <Link to={`/dashboard/${_id}`}>
+      <Link to={`/checkout/${_id}`}>
         <button className="btn btn-warning">BUY NOW</button>
-      </Link>
+        </Link>
+        
     </div>
     );
 };

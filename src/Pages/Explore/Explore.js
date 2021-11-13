@@ -5,7 +5,7 @@ const Explore = () =>
 {
        const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('allProducts.json')
+    fetch('http://localhost:5000/product')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
