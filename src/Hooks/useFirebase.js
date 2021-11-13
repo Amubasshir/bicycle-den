@@ -24,7 +24,7 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name };
               setUser(newUser);
               // save user to database
-              saveUser(email, name)
+              saveUser(email, name, )
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -106,8 +106,12 @@ const useFirebase = () => {
     })
         .then()
   }
+
+  
   return {
-        user,
+    user,
+    
+    admin,
         isLoading,
         authError,
         registerUser,

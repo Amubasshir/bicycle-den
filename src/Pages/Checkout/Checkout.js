@@ -99,7 +99,8 @@ function Checkout() {
                   <br />
                   <input
                     className="mt-3"
-                    defaultValue="Address"
+                      // defaultValue="Address"
+                    placeholder="Address"
                     {...register("address", { required: true })}
                   />
 

@@ -7,7 +7,7 @@ function MyOrders() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://lit-tundra-25365.herokuapp.com/myOrders/${user?.email}`)
+    fetch(`http://localhost:5000/myOrders/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user]);
