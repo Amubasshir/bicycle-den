@@ -11,7 +11,8 @@ initializeFirebase();
 const useFirebase = () => {
   const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-     const [authError, setAuthError] = useState('');
+  const [authError, setAuthError] = useState('');
+  //  const [admin, setAdmin] = useState(false);
   const auth = getAuth();
   
 
@@ -69,6 +70,17 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, []);
 
+
+
+  // useEffect(() => {
+  //   fetch(`https://lit-tundra-25365.herokuapp.com/users/${user.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setAdmin(data.admin));
+  // }, [user.email]);
+
+
+
+
     const logOut = () =>
     {
       setIsLoading(true);
@@ -95,12 +107,12 @@ const useFirebase = () => {
         .then()
   }
   return {
-      user,
-      isLoading,
-      registerUser,
-    authError,
+        user,
+        isLoading,
+        authError,
+        registerUser,
         loginUser,
-    logOut,
+        logOut,
   };
 };
 

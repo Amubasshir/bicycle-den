@@ -12,15 +12,16 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import AddProducts from "../../AddProducts/AddProducts";
 import AdminRoute from "../../AdminRoute/AdminRoute";
-import AddProduct from "../AddProduct/AddProduct";
+// import AddProduct from "../AddProduct/AddProduct";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
-import ManageOrders from "../ManageOrders/ManageOrders";
-import ManageProducts from "../ManageProducts/ManageProducts";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
 import Review from "../Review/Review";
 import "./Dashboard.css";
+
+
 
 
 
@@ -52,7 +53,7 @@ function Dashboard(props) {
         <Link to={`${url}/pay`}>
           <button className="btn sidebar__btn w-100">Pay</button>
         </Link>
-        {admin && (
+        
           <>
             <Link to={`${url}/manageAllOrders`}>
               <button className="btn sidebar__btn w-100">
@@ -60,7 +61,7 @@ function Dashboard(props) {
               </button>
             </Link>
 
-            <Link to={`${url}/addProduct`}>
+            <Link to={`${url}/addProducts`}>
               <button className="btn sidebar__btn w-100">Add Product</button>
             </Link>
             <Link to={`${url}/manageProducts`}>
@@ -72,7 +73,7 @@ function Dashboard(props) {
               <button className="btn sidebar__btn w-100">Make Admin</button>
             </Link>
           </>
-        )}
+        
       </List>
     </div>
   );
@@ -164,18 +165,14 @@ function Dashboard(props) {
           <Route path={`${path}/pay`}>
             <Pay></Pay>
           </Route>
-          <AdminRoute path={`${path}/makeAdmin`}>
+          <Route path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </AdminRoute>
+          </Route>
           <AdminRoute path={`${path}/addProduct`}>
-            <AddProduct></AddProduct>
+            <AddProducts></AddProducts>
           </AdminRoute>
-          <AdminRoute path={`${path}/manageProducts`}>
-            <ManageProducts></ManageProducts>
-          </AdminRoute>
-          <AdminRoute path={`${path}/manageAllOrders`}>
-            <ManageOrders></ManageOrders>
-          </AdminRoute>
+          
+         
         </Switch>
       </Box>
     </Box>

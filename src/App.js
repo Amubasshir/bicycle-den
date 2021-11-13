@@ -6,9 +6,12 @@ import './App.css';
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import AddProducts from "./Pages/AddProducts/AddProducts";
 import Contact from "./Pages/Contact/Contact";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import Review from "./Pages/Dashboard/Review/Review";
 import Explore from "./Pages/Explore/Explore";
 import Home from './Pages/Home/Home/Home';
 import Login from "./Pages/Login/Login/Login";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 
 
@@ -43,9 +46,12 @@ function App() {
             <AddProducts />
           </Route>
            
-          {/* <Route path="/review">
+          <Route path="/review">
             <Review />
-          </Route> */}
+          </Route>
+           <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
          
           <Route path="/contact">
             <Contact />
