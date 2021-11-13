@@ -1,28 +1,37 @@
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import PropTypes from 'prop-types';
-import * as React from 'react';
-import MyOrder from '../MyOrder/MyOrder';
+import MenuIcon from "@mui/icons-material/Menu";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import * as React from "react";
+import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import AdminRoute from "../../AdminRoute/AdminRoute";
+import AddProduct from "../AddProduct/AddProduct";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageOrders from "../ManageOrders/ManageOrders";
+import ManageProducts from "../ManageProducts/ManageProducts";
+import MyOrders from "../MyOrders/MyOrders";
+import Pay from "../Pay/Pay";
+import Review from "../Review/Review";
+import "./Dashboard.css";
 
-const drawerWidth = 240;
+
+
+
+const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  let { path, url } = useRouteMatch();
+  const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -32,24 +41,47 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <Link to={`${url}`}>
+          <button className="btn sidebar__btn w-100">DashBoard</button>
+        </Link>
+
+        <Link to={`${url}/addReview`}>
+          <button className="btn sidebar__btn w-100">Add a Review</button>
+        </Link>
+
+        <Link to={`${url}/pay`}>
+          <button className="btn sidebar__btn w-100">Pay</button>
+        </Link>
+        {admin && (
+          <>
+            <Link to={`${url}/manageAllOrders`}>
+              <button className="btn sidebar__btn w-100">
+                Manage all Orders
+              </button>
+            </Link>
+
+            <Link to={`${url}/addProduct`}>
+              <button className="btn sidebar__btn w-100">Add Product</button>
+            </Link>
+            <Link to={`${url}/manageProducts`}>
+              <button className="btn sidebar__btn w-100">
+                Manage Products
+              </button>
+            </Link>
+            <Link to={`${url}/makeAdmin`}>
+              <button className="btn sidebar__btn w-100">Make Admin</button>
+            </Link>
+          </>
+        )}
       </List>
-     
-     
     </div>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -64,7 +96,7 @@ function Dashboard(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -78,7 +110,6 @@ function Dashboard(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
@@ -88,8 +119,11 @@ function Dashboard(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -97,8 +131,11 @@ function Dashboard(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open
         >
@@ -107,13 +144,39 @@ function Dashboard(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
         <Toolbar />
-        <Typography paragraph>
-     <MyOrder></MyOrder>
-        </Typography>
-        
+
+        <Switch>
+          <Route exact path={path}>
+            <h1>Welcome to Dashboard</h1>
+            <MyOrders></MyOrders>
+          </Route>
+          <Route path={`${path}/addReview`}>
+            <Review></Review>
+          </Route>
+
+          <Route path={`${path}/pay`}>
+            <Pay></Pay>
+          </Route>
+          <AdminRoute path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+          </AdminRoute>
+          <AdminRoute path={`${path}/addProduct`}>
+            <AddProduct></AddProduct>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageProducts`}>
+            <ManageProducts></ManageProducts>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageAllOrders`}>
+            <ManageOrders></ManageOrders>
+          </AdminRoute>
+        </Switch>
       </Box>
     </Box>
   );
