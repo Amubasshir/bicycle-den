@@ -4,9 +4,9 @@ import
   } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
-import AddProducts from "./Pages/AddProducts/AddProducts";
 import Checkout from "./Pages/Checkout/Checkout";
 import Contact from "./Pages/Contact/Contact";
+import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import Review from "./Pages/Dashboard/Review/Review";
 import Explore from "./Pages/Explore/Explore";
@@ -16,6 +16,7 @@ import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
+
 
 
 
@@ -46,7 +47,7 @@ function App() {
           </Route>
           
           <Route path="/addProducts">
-            <AddProducts />
+            <AddProduct />
           </Route>
            
           <Route path="/review">

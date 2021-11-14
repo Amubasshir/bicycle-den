@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
-import './AddProducts.css';
+import './AddProduct.css';
 
-const AddProducts = () => {
+const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
@@ -32,4 +32,4 @@ const AddProducts = () => {
     );
 };
 
-export default AddProducts;
+export default AddProduct;
