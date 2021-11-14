@@ -5,6 +5,7 @@ import { ImHome } from 'react-icons/im';
 import { Link, NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../Hooks/useAuth';
+import logo from '../../../Images/logo2.png';
 import './Navigation.css';
 
 const Navigation = () =>
@@ -14,10 +15,11 @@ const Navigation = () =>
      <div className="header">
 			<Navbar
 				sticky="top"
-				collapseOnSelect expand="sm">
+				collapseOnSelect expand="sm"
+			>
 				<Container>
 					<Link to="/home">
-						{/* <img to="/home" className="logo" src={logo} alt="" /> */}
+						<img to="/home" className="logo" src={logo} alt="" />
 					</Link>
 					<Navbar.Toggle />
 					<Navbar.Collapse className="justify-content-end">

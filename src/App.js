@@ -30,20 +30,29 @@ function App() {
          <Router>
         
          <Switch>
-          <Route path="/about">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home />
+            </Route>
+             <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+            <Route exact path="/login">
+              <Navigation></Navigation>
+              <Login />
+              <Footer></Footer>
           </Route>
-          <Route path="/login">
-            <Login />
+            <Route exact path="/register">
+              <Navigation></Navigation>
+              <Register />
+               <Footer></Footer>
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/explore">
-            <Explore />
+            <Route exact path="/explore">
+              <Navigation></Navigation>
+              <Explore />
+              <Footer></Footer>
           </Route>
           
           <Route path="/addProducts">
@@ -53,9 +62,7 @@ function App() {
           <Route path="/review">
             <Review />
           </Route>
-           <PrivateRoute path="/dashboard">
-            <Dashboard></Dashboard>
-          </PrivateRoute>
+          
            <PrivateRoute exact path="/checkout/:id">
             <Navigation></Navigation>
             <Checkout></Checkout>
