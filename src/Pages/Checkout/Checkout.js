@@ -22,7 +22,7 @@ function Checkout() {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://secret-fjord-13605.herokuapp.com/product/${id}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -35,7 +35,7 @@ function Checkout() {
     data.price = service.price;
     data.status = "Pending";
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://secret-fjord-13605.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

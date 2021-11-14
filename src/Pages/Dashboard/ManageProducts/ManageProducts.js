@@ -7,7 +7,7 @@ function ManageProducts() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product`)
+    fetch(`https://secret-fjord-13605.herokuapp.com/product`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [user]);
@@ -15,7 +15,7 @@ function ManageProducts() {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteProduct/${id}`, {
+      fetch(`https://secret-fjord-13605.herokuapp.com/deleteProduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

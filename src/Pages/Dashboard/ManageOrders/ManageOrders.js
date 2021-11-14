@@ -10,7 +10,7 @@ function ManageOrders() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders`)
+    fetch(`https://secret-fjord-13605.herokuapp.com/myOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user]);
@@ -21,7 +21,7 @@ function ManageOrders() {
 
   // const status = "apporved";
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://secret-fjord-13605.herokuapp.com/updateStatus/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),

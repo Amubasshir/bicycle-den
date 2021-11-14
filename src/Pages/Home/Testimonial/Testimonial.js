@@ -9,7 +9,7 @@ const Testimonial = () => {
   
 
   useEffect(() => {
-    fetch("http://localhost:5000/ClientReview")
+    fetch("https://secret-fjord-13605.herokuapp.com/ClientReview")
       .then((res) => res.json())
       .then((data) => setClientReview(data));
   }, []);

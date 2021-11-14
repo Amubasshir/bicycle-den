@@ -9,7 +9,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/product', data)
+        axios.post('https://secret-fjord-13605.herokuapp.com/product', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');

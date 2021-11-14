@@ -7,7 +7,7 @@ function MyOrders() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${user?.email}`)
+    fetch(`https://secret-fjord-13605.herokuapp.com/myOrders/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user]);
