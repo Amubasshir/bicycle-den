@@ -6,7 +6,7 @@ const Review = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
     } = useForm();
     
@@ -19,6 +19,8 @@ const Review = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+          alert('added successfully');
+                    reset();
       });
   };
   return (

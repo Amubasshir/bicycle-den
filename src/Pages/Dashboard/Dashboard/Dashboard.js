@@ -35,7 +35,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, logOut } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -45,7 +45,10 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        <Link to={`${url}`}>
+        {
+          !admin && (
+            <>
+             <Link to={`${url}`}>
           <button className="btn sidebar__btn w-100">My Orders</button>
         </Link>
 
@@ -56,6 +59,12 @@ function Dashboard(props) {
         <Link to={`${url}/pay`}>
           <button className="btn sidebar__btn w-100">Pay</button>
         </Link>
+        <Link to={`${url}/logout`}>
+          <button onClick={logOut} className="btn sidebar__btn w-100">Logout</button>
+        </Link>
+            </>
+          )
+       }
         
        {admin && (
           <>
@@ -75,6 +84,9 @@ function Dashboard(props) {
             </Link>
             <Link to={`${url}/makeAdmin`}>
               <button className="btn sidebar__btn w-100">Make Admin</button>
+            </Link>
+            <Link to={`${url}/logout`}>
+              <button onClick={logOut} className="btn sidebar__btn w-100">Logout</button>
             </Link>
           </>
         )}
@@ -159,7 +171,7 @@ function Dashboard(props) {
         <Toolbar />
 
         <Switch>
-          <Route exact path={path}>
+          <Route exact  path={path}>
             <h1>My Orders</h1>
             <MyOrders></MyOrders>
           </Route>

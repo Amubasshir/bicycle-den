@@ -24,15 +24,7 @@ const Navigation = () =>
 						<Nav.Link className="ms-3 home" as={Link} to="/home">
 							<ImHome className="w-8 h-8" />
 						</Nav.Link>
-						{/* <Nav.Link className="ms-3 " as={Link} to="/offers">
-							Offers
-						</Nav.Link> */}
-						{/* <Nav.Link className="ms-3 " as={Link} to="/addoffers">
-							Add Offer
-						</Nav.Link> */}
-						{/* <Nav.Link className="ms-3 " as={Link} to="/manageoffer">
-							Manage Offer
-						</Nav.Link> */}
+						
 						<Nav.Link className="ms-3 " as={Link} to="/explore">
 							Explore
 						</Nav.Link>

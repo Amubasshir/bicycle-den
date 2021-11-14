@@ -17,7 +17,7 @@ function MyOrders() {
       <thead>
         <tr>
           <th>Name</th>
-          <th>Package Name</th>
+          <th>Product Name</th>
           <th>Address</th>
           <th>Price</th>
           <th>Status</th>

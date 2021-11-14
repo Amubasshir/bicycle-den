@@ -35,7 +35,7 @@ function Checkout() {
     data.price = service.price;
     data.status = "Pending";
 
-    fetch("https://lit-tundra-25365.herokuapp.com/orders", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

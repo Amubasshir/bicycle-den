@@ -7,7 +7,7 @@ function ManageProducts() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://lit-tundra-25365.herokuapp.com/products`)
+    fetch(`http://localhost:5000/product`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [user]);
@@ -15,7 +15,7 @@ function ManageProducts() {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      fetch(`https://lit-tundra-25365.herokuapp.com/deleteProduct/${id}`, {
+      fetch(`http://localhost:5000/deleteProduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -36,7 +36,7 @@ function ManageProducts() {
           <th>Product ID</th>
           <th>Product Name</th>
           <th>Price</th>
-          <th>Rating</th>
+          
           <th>Action</th>
         </tr>
       </thead>
@@ -46,7 +46,7 @@ function ManageProducts() {
             <td>{pd._id}</td>
             <td>{pd.name}</td>
             <td>{pd.price}</td>
-            <td>{pd.rating}</td>
+            
             <td>
               <button
                 onClick={() => handleDelete(pd?._id)}
