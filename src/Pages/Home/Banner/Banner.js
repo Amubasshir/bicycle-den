@@ -11,7 +11,7 @@ const Banner = () => {
                     <Carousel.Caption>
                         
                         <h1 className="text-secondary">
-              <strong>BE ACTIVE, BE STRONG...</strong>
+              <strong>BE ACTIVE, BE STRONG.....</strong>
             </h1>
           </Carousel.Caption>
         </Carousel.Item>
