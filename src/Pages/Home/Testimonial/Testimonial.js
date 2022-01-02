@@ -16,7 +16,7 @@ const Testimonial = () => {
 
   return (
     <div className="review-container text-center">
-      <h1>Testimonial</h1>
+      <h1><strong>Testimonial</strong></h1>
       <div className="row text-center d-flex justify-content-center align-items-center client-review w-75 m-auto">
         {ClientReview.map((client) => (
           <TestimonialCards client={client} key={client._id}></TestimonialCards>
