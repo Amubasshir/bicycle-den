@@ -11,7 +11,7 @@ const Banner = () => {
                     <Carousel.Caption>
                         
                         <h1 className="text-secondary">
-              <strong>BE ACTIVE, BE STRONG.....</strong>
+              <strong>BE ACTIVE, BE STRONG.......</strong>
             </h1>
           </Carousel.Caption>
         </Carousel.Item>
@@ -20,7 +20,7 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={banner2} alt="Second slide" />
           <Carousel.Caption><h1 className="text-secondary">
-              <strong>RIDE BICYCLE, BE FIT. </strong>
+              <strong>RIDE BICYCLE, BE FIT.... </strong>
             </h1></Carousel.Caption>
         </Carousel.Item>
       </Carousel>
